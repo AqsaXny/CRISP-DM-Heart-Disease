@@ -348,19 +348,11 @@ Fitur yang tersedia:
 
 ## Hasil Prediksi Positive
 
-```
-images/positive.png
-```
-
 <img src="images/positive.png" width="800">
 
 ---
 
 ## Hasil Prediksi Negative
-
-```
-images/negative.png
-```
 
 <img src="images/negative.png" width="800">
 
