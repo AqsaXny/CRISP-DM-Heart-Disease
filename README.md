@@ -1,10 +1,10 @@
 # ❤️ Heart Disease Prediction using Machine Learning
 
-## 📌 Deskripsi Proyek
+## 📌 Project Description
 
-Membangun model **Machine Learning** dalam memprediksi risiko penyakit jantung (**Heart Disease Prediction**) berdasarkan karakteristik pasien.
+This project aims to build a **Machine Learning** model to predict the risk of **Heart Disease** based on patients' clinical and demographic characteristics.
 
-Pada proyek ini dilakukan seluruh tahapan data mining mulai dari:
+The project follows a complete data mining workflow, including:
 
 - Data Understanding
 - Data Preprocessing
@@ -14,20 +14,22 @@ Pada proyek ini dilakukan seluruh tahapan data mining mulai dari:
 - Cross Validation
 - Model Evaluation
 - Feature Importance Analysis
-- Prediksi Data Baru
-- Implementasi Web menggunakan Streamlit
+- New Patient Prediction
+- Streamlit Web Application Deployment
 
-# 📂 Struktur Project
+---
 
-```
+# 📂 Project Structure
+
+```text
 HeartDisease/
 │
-├── app.py                      # Streamlit Web App
+├── app.py                      # Streamlit Web Application
 ├── heartV3.csv                 # Dataset
-├── model_rf.pkl                # Model Random Forest
-├── scaler.pkl                  # StandardScaler
-├── feature_names.pkl           # Nama fitur
-├── DataMiningPra-Uas.ipynb     # Notebook utama
+├── model_rf.pkl                # Trained Random Forest Model
+├── scaler.pkl                  # StandardScaler Object
+├── feature_names.pkl           # Feature Names
+├── DataMiningPra-Uas.ipynb     # Main Jupyter Notebook
 ├── README.md
 └── requirements.txt
 ```
@@ -36,22 +38,22 @@ HeartDisease/
 
 # 📖 Dataset
 
-Dataset yang digunakan merupakan dataset **Heart Disease** yang berisi informasi karakteristik pasien beserta label apakah pasien mengalami penyakit jantung atau tidak.
+The project uses a **Heart Disease** dataset containing patients' medical information along with a binary target indicating whether the patient has heart disease.
 
-## Target
+## Target Variable
 
-```
+```text
 HeartDisease
 ```
 
-- 0 = Tidak memiliki penyakit jantung
-- 1 = Memiliki penyakit jantung
+- **0** = No Heart Disease
+- **1** = Heart Disease
 
 ---
 
-## Fitur Dataset
+## Dataset Features
 
-Beberapa fitur yang digunakan antara lain:
+The dataset includes several important clinical features, such as:
 
 - Age
 - Gender
@@ -69,45 +71,45 @@ Beberapa fitur yang digunakan antara lain:
 
 ---
 
-# ⚙️ Tahapan Data Mining
+# ⚙️ Data Mining Workflow
 
 ## 1. Data Understanding
 
-Tahapan pertama adalah memahami isi dataset.
+The first stage focuses on understanding the dataset before building the prediction model.
 
-Beberapa proses yang dilakukan:
+The following analyses were performed:
 
-- Membaca dataset menggunakan Pandas
-- Melihat lima data pertama
-- Melihat informasi dataset (`info()`)
-- Statistik deskriptif (`describe()`)
-- Mengecek missing value khususnya pada kolom **Gender**
+- Loading the dataset using Pandas
+- Displaying the first five records
+- Inspecting dataset information using `info()`
+- Generating descriptive statistics using `describe()`
+- Checking for missing values, especially in the **Gender** column
 
-Tujuan tahap ini adalah mengetahui struktur dataset sebelum dilakukan pemrosesan lebih lanjut.
+The objective of this stage is to understand the dataset structure and identify any potential data quality issues.
 
 ---
 
 ## 2. Data Preprocessing
 
-Tahap preprocessing dilakukan agar data siap digunakan oleh algoritma Machine Learning.
+Data preprocessing prepares the dataset for machine learning algorithms.
 
-Tahapan yang dilakukan meliputi:
+The preprocessing pipeline includes:
 
-### Encoding Data Kategorikal
+### Categorical Encoding
 
-Kolom kategorikal diubah menjadi numerik.
+Categorical variables are converted into numerical values.
 
-Contoh:
+Example:
 
-```
-Male → 1
+```text
+Male   → 1
 Female → 0
 
 Yes → 1
-No → 0
+No  → 0
 ```
 
-Kolom yang dilakukan encoding antara lain:
+The following columns are encoded:
 
 - Gender
 - ExerciseAngina
@@ -116,9 +118,9 @@ Kolom yang dilakukan encoding antara lain:
 
 ---
 
-### One Hot Encoding
+### One-Hot Encoding
 
-Kolom **Chest Pain Type** diubah menggunakan One-Hot Encoding sehingga menghasilkan fitur seperti:
+The **Chest Pain Type** feature is transformed using One-Hot Encoding, resulting in features such as:
 
 - ChestPain_Typical
 - ChestPain_Atypical
@@ -128,41 +130,41 @@ Kolom **Chest Pain Type** diubah menggunakan One-Hot Encoding sehingga menghasil
 
 ### Feature Scaling
 
-Dilakukan menggunakan
+Feature scaling is performed using
 
-```
+```text
 StandardScaler
 ```
 
-agar seluruh fitur memiliki skala yang seragam sehingga proses training model menjadi lebih optimal.
+to normalize feature values and improve model performance.
 
 ---
 
-### Train Test Split
+### Train-Test Split
 
-Dataset dibagi menjadi:
+The dataset is divided into:
 
-- Training Data
-- Testing Data
+- Training Dataset
+- Testing Dataset
 
-dengan tujuan mengevaluasi performa model pada data yang belum pernah dilihat sebelumnya.
+This allows the model to be evaluated on unseen data.
 
 ---
 
-# 🤖 Modeling
+# 🤖 Machine Learning Models
 
-Dua algoritma Machine Learning digunakan pada proyek ini.
+Two machine learning algorithms are implemented and compared.
 
 ## 1. Logistic Regression
 
-Model pertama menggunakan Logistic Regression dengan parameter awal:
+The first model uses Logistic Regression with the initial parameters:
 
 - solver = liblinear
 - class_weight = balanced
 
-Kemudian dilakukan **Grid Search** untuk mencari parameter terbaik.
+Hyperparameter optimization is performed using **Grid Search**.
 
-Parameter yang diuji:
+Parameters tuned include:
 
 - C
 - penalty
@@ -171,86 +173,84 @@ Parameter yang diuji:
 
 ## 2. Random Forest
 
-Model kedua menggunakan Random Forest.
+The second model uses the Random Forest algorithm.
 
-Parameter yang diuji:
+The following parameters are optimized:
 
 - n_estimators
 - max_depth
 - min_samples_split
 - class_weight
 
-Pemilihan parameter terbaik juga dilakukan menggunakan GridSearchCV.
+The best hyperparameters are selected using **GridSearchCV**.
 
 ---
 
 # 🔍 Hyperparameter Tuning
 
-Seluruh model dioptimasi menggunakan
+Both models are optimized using
 
-```
+```text
 GridSearchCV
 ```
 
-dengan metode evaluasi
+with
 
-```
+```text
 ROC-AUC Score
 ```
 
-sehingga parameter terbaik dapat diperoleh secara otomatis.
+as the evaluation metric to automatically determine the optimal parameter combination.
 
 ---
 
 # 🔁 Cross Validation
 
-Model divalidasi menggunakan
+Model performance is validated using
 
-```
+```text
 10-Fold Stratified Cross Validation
 ```
 
-Keuntungan metode ini:
+Advantages of this method include:
 
-- Mengurangi bias
-- Menghasilkan evaluasi yang lebih stabil
-- Memastikan distribusi kelas tetap seimbang pada setiap fold
+- Reducing evaluation bias
+- Producing more reliable performance estimates
+- Preserving class distribution across all folds
 
 ---
 
 # 📊 Exploratory Data Analysis (EDA)
 
-Beberapa visualisasi yang dibuat meliputi:
+Several visualizations are created to better understand the dataset.
 
-### Distribusi Usia
+### Age Distribution
 
-Menampilkan hubungan antara usia pasien dengan penyakit jantung menggunakan histogram.
-
----
-
-### Hubungan Cholesterol dan Resting Blood Pressure
-
-Visualisasi scatter plot digunakan untuk melihat pola hubungan kedua variabel terhadap target penyakit jantung.
+A histogram is used to visualize the relationship between patient age and heart disease occurrence.
 
 ---
 
-# 🏆 Pemilihan Model Terbaik
+### Cholesterol vs Resting Blood Pressure
 
-Setelah dilakukan proses tuning dan cross validation, dilakukan perbandingan nilai ROC-AUC.
-
-Model dengan performa terbaik dipilih sebagai model akhir.
-
-Pada proyek ini model terbaik kemudian digunakan untuk:
-
-- Evaluasi
-- Prediksi data baru
-- Implementasi Web Streamlit
+A scatter plot is used to observe the relationship between cholesterol levels and resting blood pressure with respect to heart disease.
 
 ---
 
-# 📈 Evaluasi Model
+# 🏆 Best Model Selection
 
-Evaluasi dilakukan menggunakan beberapa metrik:
+After hyperparameter tuning and cross validation, both models are compared based on their ROC-AUC scores.
+
+The model with the best performance is selected for:
+
+- Final evaluation
+- New patient prediction
+- Streamlit web application deployment
+
+---
+
+# 📈 Model Evaluation
+
+The selected models are evaluated using several performance metrics:
 
 - Accuracy
 - Precision
@@ -258,109 +258,109 @@ Evaluasi dilakukan menggunakan beberapa metrik:
 - F1-Score
 - ROC-AUC Score
 
-Selain itu juga divisualisasikan menggunakan:
+Performance is also visualized using:
 
 - ROC Curve
 
-Evaluasi dilakukan pada data testing agar dapat mengukur kemampuan generalisasi model.
+Evaluation is performed on the testing dataset to measure the model's generalization capability.
 
 ---
 
-# 📌 Interpretasi Model
+# 📌 Model Interpretation
 
 ## Logistic Regression
 
-Dilakukan analisis menggunakan
+Model interpretation is performed using
 
-```
+```text
 Odds Ratio
 ```
 
-untuk mengetahui pengaruh setiap fitur terhadap kemungkinan seseorang mengalami penyakit jantung.
+to measure the influence of each feature on the probability of heart disease.
 
-Semakin besar nilai Odds Ratio, maka semakin besar kontribusi fitur tersebut terhadap prediksi penyakit jantung.
+Higher Odds Ratio values indicate stronger contributions to heart disease prediction.
 
 ---
 
 ## Random Forest
 
-Dilakukan analisis menggunakan
+Model interpretation is performed using
 
-```
+```text
 Feature Importance
 ```
 
-untuk mengetahui fitur mana yang paling berpengaruh terhadap keputusan model.
+to identify the most influential features in the prediction process.
 
-Visualisasi ditampilkan dalam bentuk grafik batang.
+The results are visualized using a bar chart.
 
 ---
 
-# 🔮 Prediksi Kasus Baru
+# 🔮 New Patient Prediction
 
-Model diuji menggunakan beberapa data pasien baru.
+The trained model is tested using new patient data.
 
-Input pasien meliputi:
+Example input features include:
 
-- Umur
-- Tekanan darah
-- Kolesterol
+- Age
+- Blood Pressure
+- Cholesterol
 - BMI
-- Riwayat keluarga
-- Aktivitas fisik
-- Tingkat stres
-- Jenis nyeri dada
-- dan fitur lainnya
+- Family History
+- Physical Activity
+- Stress Level
+- Chest Pain Type
+- Other clinical features
 
-Output yang diberikan berupa:
+The prediction output includes:
 
-- Berisiko Penyakit Jantung
-- Tidak Berisiko Penyakit Jantung
+- Heart Disease Risk
+- No Heart Disease Risk
 
-beserta nilai probabilitas prediksi.
+along with the predicted probability.
 
 ---
 
-# 🌐 Implementasi Web
+# 🌐 Web Application
 
-Model terbaik disimpan menggunakan:
+The best-performing model is saved using
 
-```
+```text
 pickle
 ```
 
-kemudian diimplementasikan menjadi aplikasi web menggunakan
+and deployed as an interactive web application using
 
-```
+```text
 Streamlit
 ```
 
-Fitur yang tersedia:
+Application features include:
 
-- Input seluruh data pasien
-- Tombol prediksi
-- Menampilkan probabilitas
-- Menampilkan status risiko penyakit jantung
+- Patient data input form
+- Prediction button
+- Prediction probability
+- Heart disease risk classification
 
 ---
 
-# 📸 Tampilan Aplikasi
+# 📸 Application Preview
 
-## Hasil Prediksi Positive
+## Positive Prediction
 
 <img src="images/positive.png" width="800">
 
 ---
 
-## Hasil Prediksi Negative
+## Negative Prediction
 
 <img src="images/negative.png" width="800">
 
 ---
 
-# 🚀 Cara Menjalankan Project
+# 🚀 Getting Started
 
-## 1. Clone Repository
+## 1. Clone the Repository
 
 ```bash
 git clone https://github.com/username/HeartDiseasePrediction.git
@@ -368,7 +368,7 @@ git clone https://github.com/username/HeartDiseasePrediction.git
 
 ---
 
-## 2. Install Dependency
+## 2. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -376,7 +376,7 @@ pip install -r requirements.txt
 
 ---
 
-## 3. Jalankan Streamlit
+## 3. Run the Streamlit Application
 
 ```bash
 streamlit run app.py
@@ -384,20 +384,20 @@ streamlit run app.py
 
 ---
 
-# 📦 Library yang Digunakan
+# 📦 Libraries Used
 
 - Pandas
 - NumPy
 - Matplotlib
 - Seaborn
-- Scikit-Learn
+- Scikit-learn
 - Joblib
 - Streamlit
 
 ---
 
-# 🎯 Kesimpulan
+# 🎯 Conclusion
 
-Pada proyek ini telah berhasil dibangun sistem prediksi penyakit jantung menggunakan pendekatan Machine Learning melalui tahapan data mining yang lengkap, mulai dari pemahaman data, preprocessing, eksplorasi data, pelatihan model, optimasi hyperparameter, evaluasi, hingga implementasi aplikasi web.
+This project successfully develops a heart disease prediction system using a complete machine learning pipeline, including data understanding, preprocessing, exploratory data analysis, model training, hyperparameter optimization, evaluation, and deployment.
 
-Dua algoritma dibandingkan, yaitu **Logistic Regression** dan **Random Forest**, dengan proses **10-Fold Cross Validation** dan **GridSearchCV** untuk memperoleh model terbaik. Model akhir kemudian diimplementasikan ke dalam aplikasi **Streamlit** sehingga pengguna dapat melakukan prediksi risiko penyakit jantung secara interaktif berdasarkan data pasien yang dimasukkan.
+Two machine learning algorithms, **Logistic Regression** and **Random Forest**, are compared using **10-Fold Stratified Cross Validation** and **GridSearchCV** to determine the best-performing model. The selected model is then deployed as an interactive **Streamlit** web application, allowing users to predict heart disease risk based on patient information efficiently and accurately.
