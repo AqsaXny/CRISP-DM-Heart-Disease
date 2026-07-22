@@ -2,7 +2,7 @@
 
 ## 📌 Deskripsi Proyek
 
-Proyek ini merupakan tugas **Pra UAS Data Mining** yang bertujuan untuk membangun model **Machine Learning** dalam memprediksi risiko penyakit jantung (**Heart Disease Prediction**) berdasarkan karakteristik pasien.
+Membangun model **Machine Learning** dalam memprediksi risiko penyakit jantung (**Heart Disease Prediction**) berdasarkan karakteristik pasien.
 
 Pada proyek ini dilakukan seluruh tahapan data mining mulai dari:
 
@@ -16,19 +16,6 @@ Pada proyek ini dilakukan seluruh tahapan data mining mulai dari:
 - Feature Importance Analysis
 - Prediksi Data Baru
 - Implementasi Web menggunakan Streamlit
-
----
-
-## 👨‍💻 Informasi Mahasiswa
-
-| Keterangan | Isi |
-|------------|-----|
-| Nama | Nandika Aqsa Almuntaha |
-| NIM | 09021182328003 |
-| Mata Kuliah | Data Mining |
-| Topik | Heart Disease Prediction |
-
----
 
 # 📂 Struktur Project
 
@@ -359,31 +346,23 @@ Fitur yang tersedia:
 
 # 📸 Tampilan Aplikasi
 
-## Halaman Utama
-
-> Tambahkan screenshot halaman input Streamlit di sini.
-
-Contoh:
+## Hasil Prediksi Positive
 
 ```
-images/home.png
+images/positive.png
 ```
 
-<img src="images/home.png" width="800">
+<img src="images/positive.png" width="800">
 
 ---
 
-## Hasil Prediksi
-
-> Tambahkan screenshot hasil prediksi di sini.
-
-Contoh:
+## Hasil Prediksi Negative
 
 ```
-images/result.png
+images/negative.png
 ```
 
-<img src="images/result.png" width="800">
+<img src="images/negative.png" width="800">
 
 ---
 
