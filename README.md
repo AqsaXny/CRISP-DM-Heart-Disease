@@ -409,13 +409,3 @@ streamlit run app.py
 Pada proyek ini telah berhasil dibangun sistem prediksi penyakit jantung menggunakan pendekatan Machine Learning melalui tahapan data mining yang lengkap, mulai dari pemahaman data, preprocessing, eksplorasi data, pelatihan model, optimasi hyperparameter, evaluasi, hingga implementasi aplikasi web.
 
 Dua algoritma dibandingkan, yaitu **Logistic Regression** dan **Random Forest**, dengan proses **10-Fold Cross Validation** dan **GridSearchCV** untuk memperoleh model terbaik. Model akhir kemudian diimplementasikan ke dalam aplikasi **Streamlit** sehingga pengguna dapat melakukan prediksi risiko penyakit jantung secara interaktif berdasarkan data pasien yang dimasukkan.
-
----
-
-# 👤 Author
-
-**Nandika Aqsa Almuntaha**
-
-Teknik Informatika
-
-Universitas Sriwijaya
